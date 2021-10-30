@@ -11,7 +11,7 @@
       "vmArgs": "-Dforge.logging.console.level\u003ddebug -Dforge.logging.markers\u003dREGISTRIES -XX:+IgnoreUnrecognizedVMOptions --add-exports\u003djava.base/sun.security.util\u003dALL-UNNAMED --add-exports\u003djdk.naming.dns/com.sun.jndi.dns\u003djava.naming --add-opens\u003djava.base/java.util.jar\u003dALL-UNNAMED -XX:HeapDumpPath\u003dMojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump \"-Dos.name\u003dWindows 10\" -Dos.version\u003d10.0",
       "args": "",
       "env": {
-        "MOD_CLASSES": "examplemod%%${workspaceFolder}\\bin\\main;examplemod%%${workspaceFolder}\\bin\\main",
+        "MOD_CLASSES": "responsiveshields%%${workspaceFolder}\\bin\\main;responsiveshields%%${workspaceFolder}\\bin\\main",
         "MCP_MAPPINGS": "official_1.16.5",
         "MCP_VERSION": "20210115.111550",
         "FORGE_VERSION": "36.2.0",
@@ -31,9 +31,9 @@
       "projectName": "Responsive Shields",
       "cwd": "${workspaceFolder}\\run",
       "vmArgs": "-Dforge.logging.console.level\u003ddebug -Dforge.logging.markers\u003dREGISTRIES -XX:+IgnoreUnrecognizedVMOptions --add-exports\u003djava.base/sun.security.util\u003dALL-UNNAMED --add-exports\u003djdk.naming.dns/com.sun.jndi.dns\u003djava.naming --add-opens\u003djava.base/java.util.jar\u003dALL-UNNAMED",
-      "args": "--mod examplemod --all --output \"D:\\Dev\\Minecraft Modding\\Personal Mods\\Responsive Shields\\src\\generated\\resources\" --existing \"D:\\Dev\\Minecraft Modding\\Personal Mods\\Responsive Shields\\src\\main\\resources\"",
+      "args": "--mod responsiveshields --all --output \"D:\\Dev\\Minecraft Modding\\Personal Mods\\Responsive Shields\\src\\generated\\resources\" --existing \"D:\\Dev\\Minecraft Modding\\Personal Mods\\Responsive Shields\\src\\main\\resources\" --existing \"D:\\Dev\\Minecraft Modding\\Personal Mods\\Responsive Shields\\src\\generated\\resources\"",
       "env": {
-        "MOD_CLASSES": "examplemod%%${workspaceFolder}\\bin\\main;examplemod%%${workspaceFolder}\\bin\\main",
+        "MOD_CLASSES": "responsiveshields%%${workspaceFolder}\\bin\\main;responsiveshields%%${workspaceFolder}\\bin\\main",
         "MCP_MAPPINGS": "official_1.16.5",
         "MCP_VERSION": "20210115.111550",
         "FORGE_VERSION": "36.2.0",
@@ -54,7 +54,7 @@
       "vmArgs": "-Dforge.logging.console.level\u003ddebug -Dforge.logging.markers\u003dREGISTRIES -XX:+IgnoreUnrecognizedVMOptions --add-exports\u003djava.base/sun.security.util\u003dALL-UNNAMED --add-exports\u003djdk.naming.dns/com.sun.jndi.dns\u003djava.naming --add-opens\u003djava.base/java.util.jar\u003dALL-UNNAMED",
       "args": "",
       "env": {
-        "MOD_CLASSES": "examplemod%%${workspaceFolder}\\bin\\main;examplemod%%${workspaceFolder}\\bin\\main",
+        "MOD_CLASSES": "responsiveshields%%${workspaceFolder}\\bin\\main;responsiveshields%%${workspaceFolder}\\bin\\main",
         "MCP_MAPPINGS": "official_1.16.5",
         "MCP_VERSION": "20210115.111550",
         "FORGE_VERSION": "36.2.0",

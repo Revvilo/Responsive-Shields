@@ -30,9 +30,9 @@ public class OverrideShieldDelay {
                 // Doing it this way enables complete control over how long the shield takes to work.
                 if(shieldRaisedTickCount > Config.shield_delay.get())
             	{
-                    ObfuscationReflectionHelper.setPrivateValue(LivingEntity.class, entity, baseUseDuration - 5, "useItemRemaining");
+                    ObfuscationReflectionHelper.setPrivateValue(LivingEntity.class, entity, baseUseDuration - 5, "field_184628_bn");
             	} else {
-                    ObfuscationReflectionHelper.setPrivateValue(LivingEntity.class, entity, baseUseDuration, "useItemRemaining");
+                    ObfuscationReflectionHelper.setPrivateValue(LivingEntity.class, entity, baseUseDuration, "field_184628_bn");
                 }
                 // Bro, reflection is sick.
             }
