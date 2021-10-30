@@ -1,7 +1,6 @@
 package revvilo.responsiveshields.delaymodifier;
 
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.UseAction;
 import net.minecraft.util.DamageSource;
@@ -12,31 +11,43 @@ import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
 public class DelayModifier {
     @SubscribeEvent(priority = EventPriority.HIGHEST) // TODO: Understand why this is needed
-    
     public void ModifyShieldDelay(LivingAttackEvent event) {
-        System.out.println("LivingAttackEvent fired");
-        int delayDelta = -5; // TODO: Add configuration to adjust shield delay
+
+        // TODO: Add configuration to adjust shield delay
+        int raiseDelay = 20; // Our custom amount of ticks that the shield has to be raised before 'blocking' is allowed
+        int tickReduction = 5; // Minecraft's amount of ticks that the shield has to be raised before the game 'blocks'
+
 		LivingEntity entity=event.getEntityLiving();
 		DamageSource damageSourceIn=event.getSource();
-
-        
         if (!damageSourceIn.isBypassArmor() && !entity.getUseItem().isEmpty())
         {
             ItemStack useItemStack = entity.getUseItem();
-            Item useItem = useItemStack.getItem();
             
-            if (useItem.getUseAnimation(useItemStack) == UseAction.BLOCK)
+            if (useItemStack.getUseAnimation() == UseAction.BLOCK)
             {
-                System.out.println(String.format("\n\tuseItemStack.getUseDuration() = %s\n\tentity.getUseItemRemainingTicks() = %s", useItemStack.getUseDuration(), entity.getUseItemRemainingTicks()));
-                System.out.println(useItemStack.getUseDuration() - entity.getUseItemRemainingTicks());
-                if(useItemStack.getUseDuration() - entity.getUseItemRemainingTicks() < 5)
+                int baseUseDuration = useItemStack.getUseDuration();
+                int shieldRaisedTickCount = baseUseDuration - entity.getUseItemRemainingTicks();
+
+                // Minecraft chooses to block an attack only after the shield has been raised for more than 5 ticks.
+                // We can bypass this by skipping the current use time to the base use time minus 5 ticks if they haven't yet passed.
+
+                // Doing it this way enables complete control over how long you have to have had the shield raised for.
+                if(shieldRaisedTickCount > raiseDelay)
             	{
-                    // Minecraft chooses to only say that the player is 'blocking' after the shield has been raised for more than 5 ticks.
-                    System.out.println("\n\tUse time delta was less than 5");
-                    // Set 'useItemRemaining' of the player to that of the item's use time modified by the delayDelta setting.
-                    ObfuscationReflectionHelper.setPrivateValue(LivingEntity.class, entity, useItemStack.getUseDuration() + delayDelta, "useItemRemaining");
-            	}
+                    AllowBlocking(entity, baseUseDuration, tickReduction);
+            	} else {
+                    DenyBlocking(entity, baseUseDuration);
+                }
             }
         }
+    }
+
+    private void AllowBlocking(LivingEntity entity, int baseUseDuration, int tickReduction) {
+        // Set 'useItemRemaining' of the player to that of the item's use time modified by the set tick count.
+        ObfuscationReflectionHelper.setPrivateValue(LivingEntity.class, entity, baseUseDuration - tickReduction, "useItemRemaining");
+    }
+
+    private void DenyBlocking(LivingEntity entity, int baseUseDuration) {
+        ObfuscationReflectionHelper.setPrivateValue(LivingEntity.class, entity, baseUseDuration, "useItemRemaining");
     }
 }
