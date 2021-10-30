@@ -12,8 +12,7 @@ public class DelayModifier {
     @SubscribeEvent(priority = EventPriority.HIGHEST) // TODO: Understand why this is needed
     public void ModifyShieldDelay(LivingAttackEvent event) {
 
-        // TODO: Add configuration to adjust shield delay
-        
+        // If the attack doesn't bypass armour and the current use item isn't empty (empty meaning not using anything)
         if (!event.getSource().isBypassArmor() && !event.getEntityLiving().getUseItem().isEmpty())
         {
 		    LivingEntity entity=event.getEntityLiving();
@@ -21,8 +20,9 @@ public class DelayModifier {
             
             if (useItemStack.getUseAnimation() == UseAction.BLOCK)
             {
-                int raiseDelay = 20; // Our custom amount of ticks that the shield has to be raised before 'blocking' is allowed
-                int tickReduction = 5; // Minecraft's amount of ticks that the shield has to be raised before the game 'blocks'
+                // TODO: Add configuration to adjust shield delay
+                int raiseDelay = 0; // Our custom amount of ticks that the shield has to be raised before 'blocking' is allowed
+                // int tickReduction = 5; // Minecraft's amount of ticks that the shield has to be raised before the game 'blocks'
                 
                 int baseUseDuration = useItemStack.getUseDuration();
                 int shieldRaisedTickCount = baseUseDuration - entity.getUseItemRemainingTicks();
@@ -33,7 +33,7 @@ public class DelayModifier {
                 // Doing it this way enables complete control over how long you have to have had the shield raised for.
                 if(shieldRaisedTickCount > raiseDelay)
             	{
-                    AllowBlocking(entity, baseUseDuration, tickReduction);
+                    AllowBlocking(entity, baseUseDuration, 5);
             	} else {
                     DenyBlocking(entity, baseUseDuration);
                 }
