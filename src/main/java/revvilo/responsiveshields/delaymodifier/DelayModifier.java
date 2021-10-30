@@ -3,7 +3,6 @@ package revvilo.responsiveshields.delaymodifier;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.UseAction;
-import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -14,17 +13,17 @@ public class DelayModifier {
     public void ModifyShieldDelay(LivingAttackEvent event) {
 
         // TODO: Add configuration to adjust shield delay
-        int raiseDelay = 20; // Our custom amount of ticks that the shield has to be raised before 'blocking' is allowed
-        int tickReduction = 5; // Minecraft's amount of ticks that the shield has to be raised before the game 'blocks'
-
-		LivingEntity entity=event.getEntityLiving();
-		DamageSource damageSourceIn=event.getSource();
-        if (!damageSourceIn.isBypassArmor() && !entity.getUseItem().isEmpty())
+        
+        if (!event.getSource().isBypassArmor() && !event.getEntityLiving().getUseItem().isEmpty())
         {
+		    LivingEntity entity=event.getEntityLiving();
             ItemStack useItemStack = entity.getUseItem();
             
             if (useItemStack.getUseAnimation() == UseAction.BLOCK)
             {
+                int raiseDelay = 20; // Our custom amount of ticks that the shield has to be raised before 'blocking' is allowed
+                int tickReduction = 5; // Minecraft's amount of ticks that the shield has to be raised before the game 'blocks'
+                
                 int baseUseDuration = useItemStack.getUseDuration();
                 int shieldRaisedTickCount = baseUseDuration - entity.getUseItemRemainingTicks();
 
