@@ -29,17 +29,11 @@ displayName="Responsive Shields" #mandatory
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="responsiveshields.png" #optional
 # A text field displayed in the mod UI
-credits="Thanks for this example mod goes to Java" #optional
+credits="DJcri, for showing me that this is possible with his Combat Refined mod." #optional
 # A text field displayed in the mod UI
-authors="Love, Cheese and small house plants" #optional
+authors="Revvilo" #optional
 # The description text for the mod (multi line!) (#mandatory)
-description='''
-This is a long form description of the mod. You can write whatever you want here
-
-Have some lorem ipsum.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis lacinia magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed sagittis luctus odio eu tempus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque volutpat ligula eget lacus auctor sagittis. In hac habitasse platea dictumst. Nunc gravida elit vitae sem vehicula efficitur. Donec mattis ipsum et arcu lobortis, eleifend sagittis sem rutrum. Cras pharetra quam eget posuere fermentum. Sed id tincidunt justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-'''
+description="Enables complete control over the amount of time a shield takes to raise."
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.responsiveshields]] #optional
     # the modid of the dependency
@@ -51,7 +45,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis lacinia magn
     # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
-    side="SERVER"
+    side="BOTH"
 # Here's another dependency
 [[dependencies.responsiveshields]]
     modId="minecraft"
@@ -59,4 +53,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis lacinia magn
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
     versionRange="[1.16.5,1.17)"
     ordering="NONE"
-    side="SERVER"
+    side="BOTH"

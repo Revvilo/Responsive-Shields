@@ -1,14 +1,19 @@
 package revvilo.responsiveshields;
 
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import revvilo.responsiveshields.delaymodifier.DelayModifier;
+import net.minecraftforge.fml.config.ModConfig.Type;
+import revvilo.responsiveshields.common.config.Config;
+import revvilo.responsiveshields.server.overrides.OverrideShieldDelay;
 
-// The value here should match an entry in the META-INF/mods.toml file
 @Mod("responsiveshields")
 public class ResponsiveShields
 {
     public ResponsiveShields() {
-        MinecraftForge.EVENT_BUS.register(new DelayModifier());
+        ModLoadingContext.get().registerConfig(Type.COMMON, Config.SPEC, "responsive-shields.toml");
+
+        MinecraftForge.EVENT_BUS.register(new OverrideShieldDelay());
     }
 }
