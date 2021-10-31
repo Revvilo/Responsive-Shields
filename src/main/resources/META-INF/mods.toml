@@ -29,12 +29,12 @@ displayName="Responsive Shields" #mandatory
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="responsiveshields.png" #optional
 # A text field displayed in the mod UI
-credits="DJcri, for showing me that this is possible with his Combat Refined mod." #optional
+credits="DJcri, for inspiration with their Combat Refined mod." #optional
 # A text field displayed in the mod UI
 authors="Revvilo" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-Enables complete control over the amount of time a shield takes to raise.
+    Enables reduction or complete removal of the hard-coded delay on items which block attacks.
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.responsiveshields]] #optional
