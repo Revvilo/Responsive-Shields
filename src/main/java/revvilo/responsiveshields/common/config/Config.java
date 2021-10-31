@@ -12,7 +12,7 @@ public final class Config {
     static {
         BUILDER.comment(  " ------------------------------",
         " Vanilla Minecraft has a hard-coded 5 tick delay after right clicking before a shield becomes functional.",
-        " Setting Raise Time to 5 has the same effect as disabling the mod using the Enable setting below it.",
+        " Setting Raise Time to 5 has the same effect as disabling the mod using the Enable Delay Override setting below it.",
         " Setting Raise Time to 0 makes shields capable of blocking instantaniously.",
         " The client-side raise animation takes roughly one tick to complete from the POV of the player. So setting Raise Time to 1 is a good balance between tactility and balance.",
         " Use 0 to make shields esports ready lol",
@@ -25,7 +25,7 @@ public final class Config {
 
         BUILDER.push("Toggles");
         {
-            isOverrideEnabled = BUILDER.comment(" Whether or not the mods effect is enabled. (false completely bypasses the mod's delay override code and lets Vanilla do its thing.)").define("Enable", true);
+            isOverrideEnabled = BUILDER.comment(" Whether or not the mods effect is enabled. (false completely bypasses the mod's delay override code and lets Vanilla do its thing.)").define("Enable Delay Override", true);
         }
         BUILDER.pop();
         
