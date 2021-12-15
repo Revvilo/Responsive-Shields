@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import revvilo.responsiveshields.common.config.Config;
 
 public class OverrideShieldDelay {
+    // TODO: Find a way to set the current use time when the item is first right clicked
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void ModifyShieldDelay(LivingAttackEvent event) {
 

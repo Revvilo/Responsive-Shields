@@ -14,7 +14,7 @@ It checks this by looking at the difference between the current use time countdo
 We can bypass this by skipping the *current* use time to the *base use time minus 5 ticks*; aka the threshold where the game will block attacks.
 This mod will only skip it ahead once you've had the shield raised for more than what `Raise Time` is set to. Which allows for an only partial reduction in delay.
 
-I think the reason Mojang did this was for balance reasons. But honestly, even with the delay set to 0 (which, to be fair, I'm not sure is actually truely zero) it doesn't feel particularly overpowered, and is really great for a more high-energy gameplay style encouraged by adventure modpacks.
+I think the reason Mojang did this was for balance reasons. But honestly, even with the delay set to 0 (which, to be fair, I'm not sure is actually truely zero) it doesn't feel particularly overpowered, and is really great for the more high-energy gameplay style encouraged by adventure modpacks.
 
 ----------
 ### Config:
