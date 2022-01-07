@@ -1,12 +1,12 @@
 package revvilo.responsiveshields.server.overrides;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.UseAction;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.UseAnim;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
+import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import revvilo.responsiveshields.common.config.Config;
 
 public class OverrideShieldDelay {
@@ -21,7 +21,7 @@ public class OverrideShieldDelay {
             ItemStack useItemStack = entity.getUseItem();
             
             // If the item in use 'blocks' like a shield
-            if (useItemStack.getUseAnimation() == UseAction.BLOCK)
+            if (useItemStack.getUseAnimation() == UseAnim.BLOCK)
             {
                 int baseUseDuration = useItemStack.getUseDuration();
                 int useItemRemainingTicks = entity.getUseItemRemainingTicks();
@@ -33,7 +33,7 @@ public class OverrideShieldDelay {
 
                 if(shieldRaisedTickCount > Config.shieldDelay.get() && shieldRaisedTickCount > Config.shieldDelay.get())
                 {
-                    ObfuscationReflectionHelper.setPrivateValue(LivingEntity.class, entity, baseUseDuration - 5, "field_184628_bn");
+                    ObfuscationReflectionHelper.setPrivateValue(LivingEntity.class, entity, baseUseDuration - 5, "f_20936_");
                 }
                 // Bro, reflection is sick.
             }
