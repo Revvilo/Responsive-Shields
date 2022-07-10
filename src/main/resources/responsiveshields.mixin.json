@@ -1,0 +1,12 @@
+{
+    "required": true,
+    "package": "revvilo.responsiveshields.mixin",
+    "compatibilityLevel": "JAVA_17",
+    "client": [
+        "MixinTicksConst"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    },
+    "refmap": "responsiveshields.mixin-refmap.json"
+}

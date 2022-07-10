@@ -1,4 +1,4 @@
-package revvilo.responsiveshields.common.config;
+package revvilo.responsiveshields.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
@@ -11,21 +11,21 @@ public final class Config {
 
     static {
         BUILDER.comment(  " ------------------------------",
-        " Vanilla Minecraft has a hard-coded 5 tick delay after right clicking before a shield becomes functional.",
-        " Setting Raise Time to 5 has the same effect as disabling the mod using the Enable Delay Override setting below it.",
+        " Vanilla Minecraft has a hard-coded 5 tick delay after right clicking before a shield will block.",
+        " Setting Raise Time to 5 is the same as vanilla.",
         " Setting Raise Time to 0 makes shields capable of blocking instantaniously.",
         " The client-side raise animation takes roughly one tick to complete from the POV of the player. So setting Raise Time to 1 is a good balance between tactility and balance.",
         " Use 0 to make shields esports ready lol",
         " ------------------------------"
         ).push("Timing");
         {
-            shieldDelay = BUILDER.comment(" The amount of time, in ticks, that it takes for a shield to raise.").defineInRange("Raise Time", 0, 0, 5);
+            shieldDelay = BUILDER.comment(" The amount of time, in ticks, before a shield will block").defineInRange("Raise Time", 0, 0, Integer.MAX_VALUE);
         }
         BUILDER.pop();
 
         BUILDER.push("Toggles");
         {
-            isOverrideEnabled = BUILDER.comment(" Whether or not the mods effect is enabled. (false completely bypasses the mod's delay override code and lets Vanilla do its thing.)").define("Enable Delay Override", true);
+            isOverrideEnabled = BUILDER.comment(" Whether or not the mods effect is enabled.").define("Enable Delay Override", true);
         }
         BUILDER.pop();
         
