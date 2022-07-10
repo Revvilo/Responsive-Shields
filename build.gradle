@@ -59,7 +59,7 @@ minecraft {
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
 
-            arg "-mixin.config=responsiveshields.mixin.json"
+            args "-mixin.config=responsiveshields.mixin.json"
 
             mods {
                 responsiveshields {
@@ -82,6 +82,8 @@ minecraft {
             // You can set various levels here.
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
+
+            args "-mixin.config=responsiveshields.mixin.json"
 
             mods {
                 responsiveshields {

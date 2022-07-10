@@ -16,7 +16,8 @@ public final class Config {
         " Setting Raise Time to 0 makes shields capable of blocking instantaniously.",
         " The client-side raise animation takes roughly one tick to complete from the POV of the player. So setting Raise Time to 1 is a good balance between tactility and balance.",
         " Use 0 to make shields esports ready lol",
-        " ------------------------------"
+        " ------------------------------",
+        ""
         ).push("Timing");
         {
             shieldDelay = BUILDER.comment(" The amount of time, in ticks, before a shield will block").defineInRange("Raise Time", 0, 0, Integer.MAX_VALUE);
