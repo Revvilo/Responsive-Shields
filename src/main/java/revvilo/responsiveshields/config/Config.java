@@ -25,7 +25,7 @@ public final class Config {
 
         BUILDER.push("Toggles");
         {
-            isOverrideEnabled = BUILDER.comment(" Whether or not the mods effect is enabled.").define("Enable Delay Override", true);
+            isOverrideEnabled = BUILDER.comment(" Whether or not the mods effect is enabled.").define("Enabled", true);
         }
         BUILDER.pop();
         
