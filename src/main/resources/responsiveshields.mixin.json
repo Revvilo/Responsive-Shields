@@ -2,6 +2,10 @@
     "required": true,
     "package": "revvilo.responsiveshields.mixin",
     "compatibilityLevel": "JAVA_8",
+    "mixins": [],
+    "server": [
+        "MixinTicksConst"
+    ],
     "client": [
         "MixinTicksConst"
     ],
