@@ -12,3 +12,4 @@ public class ResponsiveShields
         ModLoadingContext.get().registerConfig(Type.COMMON, Config.SPEC, "responsive-shields.toml");
     }
 }
+
