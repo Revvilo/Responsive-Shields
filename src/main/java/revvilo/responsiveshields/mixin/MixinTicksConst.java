@@ -4,14 +4,14 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
-import net.minecraft.world.entity.LivingEntity;
-import revvilo.responsiveshields.config.Config;
+import net.minecraft.entity.EntityLivingBase;
+import revvilo.responsiveshields.config.ModConfig;
 
-@Mixin(LivingEntity.class)
+@Mixin(EntityLivingBase.class)
 public class MixinTicksConst {
-    @ModifyConstant(method = "isBlocking", constant = @Constant(intValue = 5))
+    @ModifyConstant(method = "isActiveItemStackBlocking", constant = @Constant(intValue = 5))
     private int setShieldUseDelay(int constant) {
-        if(Config.isOverrideEnabled.get()) return Config.shieldDelay.get();
+        if(ModConfig.isOverrideEnabled) return ModConfig.shieldDelay;
         return constant;
     }
 }
