@@ -1,27 +1,36 @@
+## Responsive Shields for NeoForge
+### Configurable reduction of the delay in Minecraft's blocking system
 
-Installation information
-=======
+When holding use on an item, there is a base 'use time' which is stored and then decremented every tick while it's being held.
+Minecraft will only block an attack after the shield has been raised for more than 5 ticks.
+It checks this by looking at the difference between the current use time countdown and the base use time of the item.
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions at [github](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+(from LivingEntity's isBlocking() method)
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+> `return item.getUseDuration(this.useItem) - this.useItemRemaining >= 5;`
 
-> **Note**: For Eclipse, use tasks in `Launch Group` instead of ones founds in `Java Application`. A preparation task must run before launching the game. NeoGradle uses launch groups to do these subsequently.
+This mod uses a Mixin to change that number '5' to whatever you configure in the mod's config.
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+I think the reason Mojang did this was for balance reasons.
+When it comes to singleplayer, though, having the delay set to 0 is really great for the more high-energy gameplay style encouraged by adventure modpacks and allows for some super clutch moments.
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+----------
+## Configs
+### Files and contents:
+#### responsive-shields.toml
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+>`Raise Time`
+>> (From 0 to 5. default: 0) The amount of time, in ticks, from when you right-click before the game will block attacks.
+
+>`Enable`
+>> (Default: true) Whether or not the effect of the mod is enabled.
+
+
+### Info:
+- Setting Raise Time to 0 makes shields capable of blocking immediately.
+
+
+- Setting Raise Time to 5 is the same as vanilla.
+
+
+- The client-side raise animation takes roughly one tick to complete. So setting Raise Time to 1 or 2 is a decent balance between responsiveness and not being able to blockhit as easily.

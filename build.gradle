@@ -27,6 +27,10 @@ base {
     archivesName = mod_id
 }
 
+jar {
+    archiveFileName = "${mod_id}-${mod_version}-neoforge-mc1.21.x.jar"
+}
+
 // Mojang ships Java 21 to end users starting in 1.20.5, so mods should target Java 21.
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
