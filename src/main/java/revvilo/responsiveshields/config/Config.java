@@ -6,29 +6,18 @@ public final class Config {
     public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
     public static final ForgeConfigSpec SPEC;
 
-    public static final ForgeConfigSpec.IntValue shieldDelay;
-    public static final ForgeConfigSpec.BooleanValue isOverrideEnabled;
+    public static final ForgeConfigSpec.IntValue SHIELD_DELAY;
+    public static final ForgeConfigSpec.BooleanValue IS_ENABLED;
 
     static {
-        BUILDER.comment(  " ------------------------------",
-        " Vanilla Minecraft has a hard-coded 5 tick delay after right clicking before a shield will block.",
-        " Setting Raise Time to 5 is the same as vanilla.",
-        " Setting Raise Time to 0 makes shields capable of blocking instantaniously.",
-        " The client-side raise animation takes roughly one tick to complete from the POV of the player. So setting Raise Time to 1 is a good balance between tactility and balance.",
-        " Use 0 to make shields esports ready lol",
-        " ------------------------------",
-        ""
-        ).push("Timing");
-        {
-            shieldDelay = BUILDER.comment(" The amount of time, in ticks, before a shield will block").defineInRange("Raise Time", 0, 0, Integer.MAX_VALUE);
-        }
-        BUILDER.pop();
+        SHIELD_DELAY = BUILDER.comment(
+            "The amount of time, in ticks, before a shield will block",
+            "Setting to 5 is the same as vanilla.",
+            "Setting to 0 makes shields capable of blocking instantly.",
+            "The shield's 'Block' animation takes roughly 1 tick to complete, so setting to 1 is a good balance to prevent block-hitting."
+            ).defineInRange("raiseTime", 0, 0, Integer.MAX_VALUE);
 
-        BUILDER.push("Toggles");
-        {
-            isOverrideEnabled = BUILDER.comment(" Whether or not the mods effect is enabled.").define("Enabled", true);
-        }
-        BUILDER.pop();
+        IS_ENABLED = BUILDER.comment("Whether or not the mods effect is enabled.").define("enabled", true);
         
         SPEC = BUILDER.build();
     }
