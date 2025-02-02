@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "revvilo.responsiveshields.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"MixinTicksConst"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

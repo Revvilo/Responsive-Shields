@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "responsiveshields",
+	"version": "${version}",
+	"name": "Responsive Shields",
+	"description": "Modifies that delay on blocking.",
+	"authors": [
+		"Revvilo"
+	],
+	"contact": {
+		"sources": "https://github.com/Revvilo/responsiveshields-fabric"
+	},
+	"license": "MIT",
+	"icon": "assets/responsiveshields/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"revvilo.responsiveshields.ResponsiveShields"
+		]
+	},
+	"mixins": [
+		"responsiveshields.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.5",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

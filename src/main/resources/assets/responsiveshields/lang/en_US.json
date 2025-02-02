@@ -1,0 +1,5 @@
+{
+  "text.config.responsiveshields.title": "Responsive Shields Config",
+  "text.config.responsiveshields.option.SHIELD_DELAY": "Shield Delay",
+  "text.config.responsiveshields.option.IS_ENABLED": "Enable Delay Override"
+}
